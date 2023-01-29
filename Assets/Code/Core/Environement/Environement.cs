@@ -11,8 +11,6 @@ public class Environement : MonoBehaviour
     public Text timeText;
     public Text momentText;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
