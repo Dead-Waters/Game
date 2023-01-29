@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,17 +9,18 @@ public class HealthBar : MonoBehaviour
 {
     public Slider healthBar;
     public Health playerHealth;
+    public Gradient gradient;
+    public Image fill;
 
     private void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         healthBar = GetComponent<Slider>();
-        healthBar.maxValue = playerHealth.maxHealth;
-        healthBar.value = playerHealth.maxHealth;
     }
 
-    public void SetHealth(int hp)
+    public void SetHealth(int health)
     {
-        healthBar.value = hp;
+        healthBar.value = health;
+        fill.color = gradient.Evaluate(healthBar.normalizedValue);
     }
 }

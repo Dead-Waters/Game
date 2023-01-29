@@ -68,7 +68,7 @@ public class Movement : MonoBehaviour
         return value;
     } 
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(player.position + new Vector2(0, -1.1f), new Vector2(0, -0.1f),0.1f);
         return hit.collider;
