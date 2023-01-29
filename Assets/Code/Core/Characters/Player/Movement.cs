@@ -5,9 +5,22 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public Transform mainCamera;
+    public Camera camera;
     public Rigidbody2D player;
     public float speed = 100;
     public float jumpForce = 500;
+    public float visionSizeMin = 3;
+    public float visionSizeMax = 5;
+    public float followCameraDistance = 3;
+    public float zoom = 3;
+
+    private void Update()
+    {
+        float wheelValue = Input.GetAxis("Mouse ScrollWheel");
+
+        if (wheelValue != 0)
+            AddZoom(wheelValue);
+    }
 
     private void FixedUpdate()
     {
@@ -21,14 +34,46 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
             Jump();
 
-        mainCamera.position = new Vector3(player.position.x, player.position.y, -5);
+        CameraFollow2DPlayer();
     }
+
+    void CameraFollow2DPlayer()
+    {
+        float distanceToCamera = player.position.x - mainCamera.position.x;
+        Vector3 cameraPosition = mainCamera.position;
+        cameraPosition.y = player.position.y;
+
+        if (distanceToCamera > followCameraDistance)
+            cameraPosition.x = player.position.x - followCameraDistance;
+        else if (distanceToCamera < -followCameraDistance)
+            cameraPosition.x = player.position.x + followCameraDistance;
+
+        mainCamera.position = cameraPosition;
+        
+    }
+
+    void AddZoom(float zoomToAdd)
+    {
+        zoom += zoomToAdd; 
+        zoom = Lerp(visionSizeMin, visionSizeMax, zoom);
+        camera.orthographicSize = zoom;
+    }
+
+    T Lerp<T>(T min, T max, T value) where T : System.IComparable<T>
+    {
+        if (value.CompareTo(min) < 0)
+            value = min;
+        else if (value.CompareTo(max) > 0)
+            value = max;
+        return value;
+    } 
 
     bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(player.position + new Vector2(0, -1.1f), new Vector2(0, -0.1f),0.1f);
         return hit.collider;
     }
+
 
     void GoToDirection(int right)
     {
@@ -48,4 +93,6 @@ public class Movement : MonoBehaviour
             player.velocity = new Vector2(player.velocity.x, jumpForce * Time.deltaTime);
         }
     }
+
+
 }

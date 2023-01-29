@@ -717,9 +717,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420032}
+  camera: {fileID: 519420031}
   player: {fileID: 850169882}
   speed: 150
   jumpForce: 300
+  visionSizeMin: 3
+  visionSizeMax: 5
+  followCameraDistance: 3
+  zoom: 3
 --- !u!1 &976461707
 GameObject:
   m_ObjectHideFlags: 0
