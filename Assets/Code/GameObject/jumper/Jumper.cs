@@ -21,7 +21,6 @@ public class Jumper : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.CompareTag("Player"));
         if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody2D player = collision.gameObject.GetComponent<Rigidbody2D>();
