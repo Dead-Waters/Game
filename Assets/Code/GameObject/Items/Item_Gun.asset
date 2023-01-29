@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a4025c8db3b5b4d99550a102816c69, type: 3}
+  m_Name: Item_Gun
+  m_EditorClassIdentifier: 
+  itemId: 1
+  displayName: Gun
+  icon: {fileID: -956778844, guid: 403c142e7672ac543bb2dafc3f661298, type: 3}
+  prefab: {fileID: 2841631195590920228, guid: a77b2aff6ed3c1847807c00472e06b7c, type: 3}
