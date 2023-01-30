@@ -7,12 +7,18 @@ public class Movement : MonoBehaviour
     public Transform mainCamera;
     public Camera camera;
     public Rigidbody2D player;
+    public Animator m_Animator;
     public float speed = 100;
     public float jumpForce = 500;
     public float visionSizeMin = 3;
     public float visionSizeMax = 5;
     public float followCameraDistance = 3;
     public float zoom = 3;
+
+    void Start()
+    {
+        m_Animator = gameObject.GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -78,11 +84,13 @@ public class Movement : MonoBehaviour
     void GoToDirection(int right)
     {
         player.velocity = new Vector2(right * speed * Time.deltaTime, player.velocity.y);
+        m_Animator.SetBool("Running", true);
     }
 
     void StopMovement()
     {
         player.velocity = new Vector2(0, player.velocity.y);
+        m_Animator.SetBool("Running", false);
     }
 
     void Jump()
