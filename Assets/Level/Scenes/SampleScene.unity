@@ -212,7 +212,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 29700068283697613, guid: 648eeb98cd8147c48b0f199be4543437, type: 3}
   m_PrefabInstance: {fileID: 8497395155526904801}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &20252439
+--- !u!114 &20252442
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,16 +225,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   surfaceConfiguration:
-    foliageBackgroundLayerPosition: 1
-    surfaceSprite: {fileID: 21300000, guid: 51a53a1e90d83094ba3037f4e8f9c162, type: 3}
-    underGroundSprite: {fileID: 21300000, guid: 2d463fecf1619b04db06301f49df3ac4, type: 3}
-    foliageSprite: {fileID: 21300000, guid: 3c65f66f8560ea047993d20e3c2574e6, type: 3}
-    flowerSprite: {fileID: 21300000, guid: b2658c1f5cb06054c993c81e9cb51c4d, type: 3}
+    foliageBackgroundLayerPosition: 0
+    surfaceSprite: {fileID: 0}
+    underGroundSprite: {fileID: 0}
+    foliageSprite: {fileID: 0}
+    flowerSprite: {fileID: 0}
   treeConfiguration:
-    backgroundLayerPosition: 2
-    treeBaseSprite: {fileID: 21300000, guid: fade3f77915a8c149bfe48f1c10ec744, type: 3}
-    treeLogSprite: {fileID: 21300000, guid: 5ac17f0323726d341b60ceb8f4a4c005, type: 3}
-    treeLeavesSprite: {fileID: 21300000, guid: 68f93b780d2cd594c902f77eb2b70825, type: 3}
+    backgroundLayerPosition: 0
+    treeBaseSprite: {fileID: 0}
+    treeLogSprite: {fileID: 0}
+    treeLeavesSprite: {fileID: 0}
 --- !u!1 &107934962
 GameObject:
   m_ObjectHideFlags: 0

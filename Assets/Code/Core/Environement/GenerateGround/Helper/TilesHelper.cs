@@ -4,7 +4,12 @@ using UnityEngine;
 
 public static class TilesHelper
 {
-    public static void CreateBlock(Vector2 position, Sprite sprite, int backgroundLayerPosition = 0)
+    public static Sprite getRandomSprite(Sprite[] sprites)
+    {
+        return sprites[Random.Range(0, sprites.Length)];
+    }
+
+    public static void CreateBlock(Vector2 position, Sprite sprite, float backgroundLayerPosition = 0)
     {
         GameObject tileObject = new GameObject("Tile");
         tileObject.AddComponent<SpriteRenderer>();

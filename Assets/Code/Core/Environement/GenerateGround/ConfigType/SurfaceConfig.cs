@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -10,7 +7,7 @@ public struct SurfaceConfig
     public int foliageBackgroundLayerPosition;
     public Sprite surfaceSprite;
     public Sprite underGroundSprite;
-    public Sprite foliageSprite;  
-    public Sprite flowerSprite;
+    public Sprite[] foliagesSprite;
+    public Sprite[] flowersSprite;
 }
 

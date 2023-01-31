@@ -16,6 +16,6 @@ public static class TreeGenerator
 
         for (float i = position.x - 1; i < position.x + 2; i++)
             for (float j = position.y + 2; j < position.y + 5; j++)
-                TilesHelper.CreateBlock(new Vector2(i, j), treeConfigurations.treeLeavesSprite, treeConfigurations.backgroundLayerPosition);
+                TilesHelper.CreateBlock(new Vector2(i, j), treeConfigurations.treeLeavesSprite, treeConfigurations.backgroundLayerPosition -0.01f);
     }
 }

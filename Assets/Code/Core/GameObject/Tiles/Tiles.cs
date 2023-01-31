@@ -6,7 +6,7 @@ public class Tiles : MonoBehaviour
 {
     public Vector2 position;
     public Vector2 size = new Vector2(1, 1);
-    public int backgroundLayerPosition;
+    public float backgroundLayerPosition;
     public Sprite sprite;
 
     private SpriteRenderer spriteRenderer;
