@@ -7,15 +7,16 @@ public static class TreeGenerator
     public static void AddTree(Vector2 position)
     {
         TreeConfig treeConfigurations = GeneratorConfig.getInstance().treeConfiguration;
-        TilesHelper.CreateBlock(position, treeConfigurations.treeBaseSprite, treeConfigurations.backgroundLayerPosition);
-        for (float i = position.y; i < position.y + 4; i++)
-        {
-            TilesHelper.CreateBlock(new Vector2(position.x, i), treeConfigurations.treeLogSprite, treeConfigurations.backgroundLayerPosition);
-        }
-        // nine leaves 3x3
+        int height = Random.Range(treeConfigurations.minHeight, treeConfigurations.maxHeight+1);
 
-        for (float i = position.x - 1; i < position.x + 2; i++)
-            for (float j = position.y + 2; j < position.y + 5; j++)
-                TilesHelper.CreateBlock(new Vector2(i, j), treeConfigurations.treeLeavesSprite, treeConfigurations.backgroundLayerPosition -0.01f);
+
+        TilesHelper.CreateBlock(position, treeConfigurations.treeBaseSprite, treeConfigurations.backgroundLayerPosition);
+        for (float i = position.y + 1; i < position.y + height; i++)
+            TilesHelper.CreateBlock(new Vector2(position.x, i), treeConfigurations.treeLogSprite, treeConfigurations.backgroundLayerPosition);
+
+        // nine leaves 3x3
+        for (float i = position.y + height - 2; i < position.y + height + 1; i++)
+            for (float j = position.x - 1; j < position.x + 2; j++)
+                TilesHelper.CreateBlock(new Vector2(j, i), treeConfigurations.treeLeavesSprite, treeConfigurations.backgroundLayerPosition - 0.1f);
     }
 }

@@ -225,16 +225,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   surfaceConfiguration:
-    foliageBackgroundLayerPosition: 0
-    surfaceSprite: {fileID: 0}
-    underGroundSprite: {fileID: 0}
-    foliageSprite: {fileID: 0}
-    flowerSprite: {fileID: 0}
+    foliageBackgroundLayerPosition: 1
+    surfaceSprite: {fileID: 21300000, guid: 51a53a1e90d83094ba3037f4e8f9c162, type: 3}
+    underGroundSprite: {fileID: 21300000, guid: 2d463fecf1619b04db06301f49df3ac4, type: 3}
+    foliagesSprite:
+    - {fileID: 21300000, guid: e3e87d8f8c0d643428b8a8e57b2daecf, type: 3}
+    - {fileID: 21300000, guid: 962ceefd93a2443438f38adcbd4a6b2b, type: 3}
+    - {fileID: 21300000, guid: 54b78e9ad69a5014ba86f3c71f25b0ec, type: 3}
+    - {fileID: 21300000, guid: 6a185ef90b53b1a4b8dbbb7c6f6e9acb, type: 3}
+    flowersSprite:
+    - {fileID: 21300000, guid: b6db53f93aae5664ab914cbf8466c638, type: 3}
+    - {fileID: 21300000, guid: 50317af03a6188c4bbe2e4fb940bcecf, type: 3}
+    - {fileID: 21300000, guid: 53f00b6f07760b546b1aa6f835132ffa, type: 3}
+    - {fileID: 21300000, guid: 4686a84afad896d4cbe0ca2f3894bc49, type: 3}
+    - {fileID: 21300000, guid: 50378e74749f280429ba6344ff460c9f, type: 3}
+    - {fileID: 21300000, guid: 264e14d854b5bb449b503db424cac826, type: 3}
   treeConfiguration:
-    backgroundLayerPosition: 0
-    treeBaseSprite: {fileID: 0}
-    treeLogSprite: {fileID: 0}
-    treeLeavesSprite: {fileID: 0}
+    backgroundLayerPosition: 2
+    minHeight: 3
+    maxHeight: 7
+    treeBaseSprite: {fileID: 21300000, guid: fade3f77915a8c149bfe48f1c10ec744, type: 3}
+    treeLogSprite: {fileID: 21300000, guid: 5ac17f0323726d341b60ceb8f4a4c005, type: 3}
+    treeLeavesSprite: {fileID: 21300000, guid: 68f93b780d2cd594c902f77eb2b70825, type: 3}
 --- !u!1 &107934962
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,7 +2258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4548297557815590408, guid: 648eeb98cd8147c48b0f199be4543437, type: 3}
       propertyPath: numberOfTiles
-      value: 326
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4548297557815590408, guid: 648eeb98cd8147c48b0f199be4543437, type: 3}
       propertyPath: surfaceSprite

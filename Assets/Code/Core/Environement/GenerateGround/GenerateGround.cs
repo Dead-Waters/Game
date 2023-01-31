@@ -36,9 +36,9 @@ public class GenerateGround : MonoBehaviour
     {
         SurfaceConfig surfaceConfiguration = GeneratorConfig.getInstance().surfaceConfiguration;
         int random = Random.Range(0, 100);
-        if (random <= 5)
+        if (random <= 8)
             TilesHelper.CreateBlock(new Vector2(position.x, position.y + 1), TilesHelper.getRandomSprite(surfaceConfiguration.flowersSprite), surfaceConfiguration.foliageBackgroundLayerPosition);
-        if (random > 5)
+        if (random > 8)
             TilesHelper.CreateBlock(new Vector2(position.x, position.y + 1), TilesHelper.getRandomSprite(surfaceConfiguration.foliagesSprite), surfaceConfiguration.foliageBackgroundLayerPosition);
 
         if(Random.Range(0, 100) < 5)

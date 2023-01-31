@@ -4,9 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct TreeConfig
+public class TreeConfig
 {
     public int backgroundLayerPosition;
+    [Range(3, 10)]
+    public int minHeight = 4;
+    [Range(4, 11)]
+    public int maxHeight = 6;
+
     public Sprite treeBaseSprite;
     public Sprite treeLogSprite;
     public Sprite treeLeavesSprite;
