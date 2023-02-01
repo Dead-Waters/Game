@@ -29,8 +29,8 @@ public class Movement : MonoBehaviour
     [Space(10)]
 
     public float visionSizeMin = 3;
-    public float visionSizeMax = 20;
-    [Range(3, 20)] public float zoom = 3;
+    public float visionSizeMax = 10;
+    [Range(3, 10)] public float zoom = 10;
     [Space(10)]
 
     public float followCameraDistance = 3;
