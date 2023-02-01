@@ -14,6 +14,8 @@ public class Health : MonoBehaviour
 
     public int devHealPlayer = 10;
     public int devDamagePlayer = 10;
+    public bool devGodMode;
+
 
     float startYPos, endYPos;
     public float damageThreshold = 3f;
@@ -70,6 +72,9 @@ public class Health : MonoBehaviour
 
     public void UpdateHealth(int health)
     {
+        if (devGodMode)
+            return;
+
         if (health < minHealth)
             health = minHealth;
         else if (health > maxHealth)
