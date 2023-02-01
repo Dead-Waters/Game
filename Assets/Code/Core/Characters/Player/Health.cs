@@ -7,21 +7,34 @@ public class Health : MonoBehaviour
     public Rigidbody2D player;
     public HealthBar healthBar;
     private Movement movement;
+    [Space(10)]
+
+    [Header("Health")]
+    [Space(10)]
 
     public int curHealth = 0;
     public int minHealth = 0;
     public int maxHealth = 100;
+    [Space(10)]
+
+    [Header("Damage")]
+    [Space(10)]
+
+    public float damageThreshold = 3f;
+    public float damageMultiplier = 2.85f;
+    [Space(10)]
+
+    [Header("Dev tools")]
+    [Space(10)]
 
     public int devHealPlayer = 10;
     public int devDamagePlayer = 10;
     public bool devGodMode;
 
+    [HideInInspector] float startYPos, endYPos;
+    [HideInInspector] bool firstCall = true;
+    [HideInInspector] bool damaged = false;
 
-    float startYPos, endYPos;
-    public float damageThreshold = 3f;
-    public float damageMultiplier = 2.85f;
-    bool firstCall = true;
-    bool damaged = false;
 
     void Start()
     {
@@ -86,6 +99,6 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        
+
     }
 }

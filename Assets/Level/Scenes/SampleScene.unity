@@ -1166,11 +1166,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 850169884}
+  - component: {fileID: 850169886}
+  - component: {fileID: 850169885}
   - component: {fileID: 850169883}
   - component: {fileID: 850169882}
   - component: {fileID: 850169889}
-  - component: {fileID: 850169885}
-  - component: {fileID: 850169886}
   - component: {fileID: 850169887}
   - component: {fileID: 850169888}
   m_Layer: 0
@@ -1280,21 +1280,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167e422c59af666469144ac4f8766c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 519420032}
-  camera: {fileID: 519420031}
   player: {fileID: 850169882}
   m_Animator: {fileID: 850169888}
+  mainCamera: {fileID: 519420032}
+  camera: {fileID: 519420031}
   walkingSpeed: 200
   runningSpeed: 250
   jumpForce: 300
-  visionSizeMin: 3
-  visionSizeMax: 20
-  followCameraDistance: 3
-  zoom: 20
-  dirX: 0
   isHurting: 0
   isDead: 0
   facingRight: 1
+  dirX: 0
+  visionSizeMin: 3
+  visionSizeMax: 20
+  zoom: 5.03
+  followCameraDistance: 3
 --- !u!114 &850169886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1312,10 +1312,11 @@ MonoBehaviour:
   curHealth: 50
   minHealth: 0
   maxHealth: 100
-  devHealPlayer: 10
-  devDamagePlayer: 10
   damageThreshold: 3
   damageMultiplier: 2.85
+  devHealPlayer: 10
+  devDamagePlayer: 10
+  devGodMode: 0
 --- !u!114 &850169887
 MonoBehaviour:
   m_ObjectHideFlags: 0

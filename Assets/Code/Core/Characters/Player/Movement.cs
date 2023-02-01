@@ -4,20 +4,37 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public Transform mainCamera;
-    public Camera camera;
     public Rigidbody2D player;
     public Animator m_Animator;
-    public float walkingSpeed = 200;
-    public float runningSpeed = 250;
-    public float jumpForce = 500;
-    public float visionSizeMin = 3;
-    public float visionSizeMax = 5;
-    public float followCameraDistance = 3;
-    public float zoom = 3;
-    public float dirX;
-    public bool isHurting, isDead;
+    [Space(10)]
+
+    public Transform mainCamera;
+    public Camera camera;
+
+    [Header("Player movement")]
+    [Space(10)]
+
+    [Range(0, 1000)] public float walkingSpeed = 200;
+    [Range(0, 1000)] public float runningSpeed = 250;
+    [Range(0, 1000)] public float jumpForce = 500;
+    [Space(10)]
+
+    public bool isHurting;
+    public bool isDead;
     public bool facingRight = true;
+    [HideInInspector] public float dirX;
+    [Space(10)]
+
+    [Header("Camera movement")]
+    [Space(10)]
+
+    public float visionSizeMin = 3;
+    public float visionSizeMax = 20;
+    [Range(3, 20)] public float zoom = 3;
+    [Space(10)]
+
+    public float followCameraDistance = 3;
+
     Vector3 localScale;
 
     void Start()
@@ -34,7 +51,7 @@ public class Movement : MonoBehaviour
             AddZoom(wheelValue);
 
         if (!isDead)
-            if (Input.GetKey(KeyCode.LeftShift)&& IsGrounded())
+            if (Input.GetKey(KeyCode.LeftShift) && IsGrounded())
                 dirX = Input.GetAxisRaw("Horizontal") * runningSpeed;
             else
                 dirX = Input.GetAxisRaw("Horizontal") * walkingSpeed;
