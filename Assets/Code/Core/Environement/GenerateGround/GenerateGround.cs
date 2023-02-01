@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Tiles;
 
 public class GenerateGround : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class GenerateGround : MonoBehaviour
         //perlinNoiseSmoothness = 10 : calculatedSmoothness=0.1
         //perlinNoiseSmoothness = 100 : calculatedSmoothness=0.01
         //perlinNoiseSmoothness = 1000 : calculatedSmoothness=0.001
+        
         float calculatedSmoothness = 1 / perlinNoiseSmoothness;
         Vector2 calculatedOrigin = new Vector2(origin.x - (numberOfTiles / 2), origin.y);
 
@@ -37,16 +39,16 @@ public class GenerateGround : MonoBehaviour
         SurfaceConfig surfaceConfiguration = GeneratorConfig.getInstance().surfaceConfiguration;
         int random = Random.Range(0, 100);
         if (random <= 8)
-            TilesHelper.CreateBlock(new Vector2(position.x, position.y + 1), TilesHelper.getRandomSprite(surfaceConfiguration.flowersSprite), surfaceConfiguration.foliageBackgroundLayerPosition);
+            TilesHelper.CreateBlock(new Vector2(position.x, position.y + 1), surfaceConfiguration.flowerTile, surfaceConfiguration.foliageBackgroundLayerPosition);
         if (random > 8)
-            TilesHelper.CreateBlock(new Vector2(position.x, position.y + 1), TilesHelper.getRandomSprite(surfaceConfiguration.foliagesSprite), surfaceConfiguration.foliageBackgroundLayerPosition);
+            TilesHelper.CreateBlock(new Vector2(position.x, position.y + 1),surfaceConfiguration.foliageTile, surfaceConfiguration.foliageBackgroundLayerPosition);
 
         if(Random.Range(0, 100) < 5)
             TreeGenerator.AddTree(new Vector2(position.x, position.y + 1));
-        TilesHelper.CreateBlock(position, surfaceConfiguration.surfaceSprite);
+        TilesHelper.CreateBlock(position, surfaceConfiguration.surfaceTile);
         for (float i = position.y-1; i > yDirt; i--)
         {
-            TilesHelper.CreateBlock(new Vector2(position.x, i), surfaceConfiguration.underGroundSprite);
+            TilesHelper.CreateBlock(new Vector2(position.x, i), surfaceConfiguration.undergroundTile);
         }
     }
 }

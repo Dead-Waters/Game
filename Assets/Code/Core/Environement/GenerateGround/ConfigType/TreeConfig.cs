@@ -12,7 +12,7 @@ public class TreeConfig
     [Range(4, 11)]
     public int maxHeight = 6;
 
-    public Sprite treeBaseSprite;
-    public Sprite treeLogSprite;
-    public Sprite treeLeavesSprite;
+    public GameObject footTile;
+    public GameObject logTile;
+    public GameObject leavesTile; 
 }

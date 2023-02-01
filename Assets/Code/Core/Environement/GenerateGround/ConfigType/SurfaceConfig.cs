@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 
@@ -5,9 +6,9 @@ using UnityEngine;
 public struct SurfaceConfig
 {
     public int foliageBackgroundLayerPosition;
-    public Sprite surfaceSprite;
-    public Sprite underGroundSprite;
-    public Sprite[] foliagesSprite;
-    public Sprite[] flowersSprite;
+    public GameObject surfaceTile;
+    public GameObject undergroundTile;
+    public GameObject foliageTile;
+    public GameObject flowerTile;
 }
 
