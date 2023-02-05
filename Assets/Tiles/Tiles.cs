@@ -12,6 +12,7 @@ namespace Tiles
         public Vector2 size = new Vector2(1, 1);
         public float backgroundLayerPosition;
         public Sprite sprite;
+        public bool canPlaceOn = true;
 
         private SpriteRenderer spriteRenderer;
 
@@ -78,20 +79,14 @@ namespace Tiles
                 .Select(x => x.GetComponent<Tiles>())
                 .Where(x => x != null && x != this)
                 .ToArray();
-            // debug the overlap circle
-
-            Debug.DrawLine(transform.position, transform.position + new Vector3(Distance, 0, 0), Color.red, 1);
-            Debug.DrawLine(transform.position, transform.position + new Vector3(-Distance, 0, 0), Color.red, 1);
-            Debug.DrawLine(transform.position, transform.position + new Vector3(0, Distance, 0), Color.red, 1);
-            Debug.DrawLine(transform.position, transform.position + new Vector3(0, -Distance, 0), Color.red, 1);
 
             foreach (Tiles tile in tiles)
-                tile.onRefresh();
+                tile.OnRefresh();
         }
 
-        public void onRefresh()
+        public virtual void OnRefresh()
         {
-            Debug.Log("onRefresh : " + gameObject.name);
+            
         }
     }
 }

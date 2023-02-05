@@ -8,8 +8,16 @@ namespace Tiles
     {
         public void Awake()
         {
-            sprite = Resources.Load<Sprite>("Tiles/Foliages/Foliage" + Random.Range(1, 5).ToString());
+            this.sprite = Resources.Load<Sprite>("Tiles/Foliages/Foliage" + Random.Range(1, 5).ToString());
+            this.canPlaceOn = false;
             Init();
+        }
+
+        public override void OnRefresh()
+        {
+            if (!TilesHelper.isPlacableHere(position))
+                Destroy(this.gameObject);
+            Debug.Log("Foliage refreshed");
         }
     }
 }
