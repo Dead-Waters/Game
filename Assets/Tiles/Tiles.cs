@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Tiles
@@ -54,15 +56,42 @@ namespace Tiles
         // onMouseDown is only work with left click
         private void OnMouseDown()
         {
-            onBreak();
+            OnBreak();
         }
 
-        public void onBreak()
+        public void OnBreak()
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             float distance = Vector2.Distance(player.transform.position, transform.position);
             if (distance < TilesConfig.getInstance().breakDistance)
+            {
                 Destroy(gameObject);
+                NotifyRefreshArround(1);
+            }
+        }
+
+        public void NotifyRefreshArround(int Distance)
+        {
+            Tiles[] tiles;
+            // search arround tiles with raycast
+            tiles = Physics2D.OverlapCircleAll(transform.position, Distance)
+                .Select(x => x.GetComponent<Tiles>())
+                .Where(x => x != null && x != this)
+                .ToArray();
+            // debug the overlap circle
+
+            Debug.DrawLine(transform.position, transform.position + new Vector3(Distance, 0, 0), Color.red, 1);
+            Debug.DrawLine(transform.position, transform.position + new Vector3(-Distance, 0, 0), Color.red, 1);
+            Debug.DrawLine(transform.position, transform.position + new Vector3(0, Distance, 0), Color.red, 1);
+            Debug.DrawLine(transform.position, transform.position + new Vector3(0, -Distance, 0), Color.red, 1);
+
+            foreach (Tiles tile in tiles)
+                tile.onRefresh();
+        }
+
+        public void onRefresh()
+        {
+            Debug.Log("onRefresh : " + gameObject.name);
         }
     }
 }
