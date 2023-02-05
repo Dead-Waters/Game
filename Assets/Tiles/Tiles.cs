@@ -29,14 +29,14 @@ namespace Tiles
             transform.localScale = new Vector3(size.x, size.y, 1);
 
             BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
-            if (backgroundLayerPosition == 0 && !boxCollider2D)
+            if (!boxCollider2D)
             {
                 boxCollider2D = gameObject.AddComponent<BoxCollider2D>();
                 boxCollider2D.size = size;
             }
-            else if (backgroundLayerPosition != 0 && boxCollider2D)
+            if (backgroundLayerPosition != 0)
             {
-                Destroy(boxCollider2D);
+                boxCollider2D.isTrigger = true;
             }
 
             if (position != Vector2.zero)
@@ -49,6 +49,20 @@ namespace Tiles
             }
 
             transform.position = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y), backgroundLayerPosition);
+        }
+
+        // onMouseDown is only work with left click
+        private void OnMouseDown()
+        {
+            onBreak();
+        }
+
+        public void onBreak()
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            float distance = Vector2.Distance(player.transform.position, transform.position);
+            if (distance < TilesConfig.getInstance().breakDistance)
+                Destroy(gameObject);
         }
     }
 }

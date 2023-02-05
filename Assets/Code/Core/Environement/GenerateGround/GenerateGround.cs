@@ -20,6 +20,7 @@ public class GenerateGround : MonoBehaviour
         //perlinNoiseSmoothness = 10 : calculatedSmoothness=0.1
         //perlinNoiseSmoothness = 100 : calculatedSmoothness=0.01
         //perlinNoiseSmoothness = 1000 : calculatedSmoothness=0.001
+        player.tag = "Player";
         
         float calculatedSmoothness = 1 / perlinNoiseSmoothness;
         Vector2 calculatedOrigin = new Vector2(origin.x - (numberOfTiles / 2), origin.y);
