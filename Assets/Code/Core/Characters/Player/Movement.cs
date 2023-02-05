@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     [Space(10)]
 
     public Transform mainCamera;
-    public Camera camera;
+    public new Camera camera;
 
     [Header("Player movement")]
     [Space(10)]
