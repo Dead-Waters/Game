@@ -232,6 +232,7 @@ MonoBehaviour:
     foliageTile: {fileID: 7947595708956900224, guid: 587110dc7e2cba1428336a540129ceae, type: 3}
     flowerTile: {fileID: 7079208749974145335, guid: 2152d45ae6122a74cb20817ec1be1cb2, type: 3}
     stoneTile: {fileID: 8495298386913907259, guid: 2da5b3069b71b834d8760b823021b838, type: 3}
+    doomStoneTile: {fileID: 3742013538069259723, guid: 0a3b66749e2b8b34095e5cd1f8387c72, type: 3}
   treeConfiguration:
     backgroundLayerPosition: 2
     minHeight: 3

@@ -60,7 +60,7 @@ namespace Tiles
             OnBreak();
         }
 
-        public void OnBreak()
+        public virtual void OnBreak()
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             float distance = Vector2.Distance(player.transform.position, transform.position);

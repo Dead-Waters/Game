@@ -11,5 +11,11 @@ namespace Tiles
             sprite = Resources.Load<Sprite>("Tiles/Doomstone");
             Init();
         }
+
+        public override void OnBreak()
+        {
+            // doomstone can't be broken
+            return;
+        }
     }
 }
