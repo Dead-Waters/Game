@@ -226,10 +226,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   surfaceConfiguration:
     foliageBackgroundLayerPosition: 1
+    stonePositionY: -20
     surfaceTile: {fileID: 3651185615283988503, guid: 4fd3be9912eeb5a4d8970e0ef429cb01, type: 3}
     undergroundTile: {fileID: 3490109101853818669, guid: 9a70d524a2c0f694bb10e2eeb837da05, type: 3}
     foliageTile: {fileID: 7947595708956900224, guid: 587110dc7e2cba1428336a540129ceae, type: 3}
     flowerTile: {fileID: 7079208749974145335, guid: 2152d45ae6122a74cb20817ec1be1cb2, type: 3}
+    stoneTile: {fileID: 8495298386913907259, guid: 2da5b3069b71b834d8760b823021b838, type: 3}
   treeConfiguration:
     backgroundLayerPosition: 2
     minHeight: 3
@@ -2258,11 +2260,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4548297557815590408, guid: 648eeb98cd8147c48b0f199be4543437, type: 3}
       propertyPath: origin.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4548297557815590408, guid: 648eeb98cd8147c48b0f199be4543437, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548297557815590408, guid: 648eeb98cd8147c48b0f199be4543437, type: 3}
+      propertyPath: minBlockY
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4548297557815590408, guid: 648eeb98cd8147c48b0f199be4543437, type: 3}
       propertyPath: numberOfTiles

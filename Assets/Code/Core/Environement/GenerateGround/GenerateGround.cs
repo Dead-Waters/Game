@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Tiles;
+using UnityEngine.UIElements;
+using System;
 
 public class GenerateGround : MonoBehaviour
 {
     public int numberOfTiles = 100;
     public Vector2 origin = Vector2.zero;
-    public int yDirt = 0;
+    public int minBlockY = 0;
     public GameObject player;
 
     public float perlinNoiseAmplitude = 1;
@@ -38,18 +40,39 @@ public class GenerateGround : MonoBehaviour
     void CreateLine(Vector2 position)
     {
         SurfaceConfig surfaceConfiguration = GeneratorConfig.getInstance().surfaceConfiguration;
-        int random = Random.Range(0, 100);
+        
+        setDecoration(position);
+        
+        TilesHelper.CreateBlock(position, surfaceConfiguration.surfaceTile);
+        
+        if (surfaceConfiguration.stonePositionY > minBlockY)
+        {
+            fillLine(position, Convert.ToInt32(position.y - 1), surfaceConfiguration.stonePositionY + 1, surfaceConfiguration.undergroundTile);
+            fillLine(position, surfaceConfiguration.stonePositionY + 1, minBlockY, surfaceConfiguration.stoneTile);
+        }
+        else
+            fillLine(position, Convert.ToInt32(position.y - 1), minBlockY, surfaceConfiguration.undergroundTile);
+    }
+
+    void fillLine(Vector2 position, int startDirtPos, int endDirtPos, GameObject tile)
+    {
+        
+        for (float i = startDirtPos; i > endDirtPos; i--)
+        {
+            TilesHelper.CreateBlock(new Vector2(position.x, i), tile);
+        }
+    }
+
+    void setDecoration(Vector2 position)
+    {
+        SurfaceConfig surfaceConfiguration = GeneratorConfig.getInstance().surfaceConfiguration;
+        int random = UnityEngine.Random.Range(0, 100);
         if (random <= 8)
             TilesHelper.CreateBlock(new Vector2(position.x, position.y + 1), surfaceConfiguration.flowerTile, surfaceConfiguration.foliageBackgroundLayerPosition);
         if (random > 8)
-            TilesHelper.CreateBlock(new Vector2(position.x, position.y + 1),surfaceConfiguration.foliageTile, surfaceConfiguration.foliageBackgroundLayerPosition);
+            TilesHelper.CreateBlock(new Vector2(position.x, position.y + 1), surfaceConfiguration.foliageTile, surfaceConfiguration.foliageBackgroundLayerPosition);
 
-        if(Random.Range(0, 100) < 5)
+        if (UnityEngine.Random.Range(0, 100) < 5)
             TreeGenerator.AddTree(new Vector2(position.x, position.y + 1));
-        TilesHelper.CreateBlock(position, surfaceConfiguration.surfaceTile);
-        for (float i = position.y-1; i > yDirt; i--)
-        {
-            TilesHelper.CreateBlock(new Vector2(position.x, i), surfaceConfiguration.undergroundTile);
-        }
     }
 }
