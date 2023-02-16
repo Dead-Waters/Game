@@ -52,6 +52,7 @@ public class GenerateGround : MonoBehaviour
         }
         else
             fillLine(position, Convert.ToInt32(position.y - 1), minBlockY, surfaceConfiguration.undergroundTile);
+        TilesHelper.CreateBlock(new Vector2(position.x,minBlockY), surfaceConfiguration.doomStoneTile);
     }
 
     void fillLine(Vector2 position, int startDirtPos, int endDirtPos, GameObject tile)

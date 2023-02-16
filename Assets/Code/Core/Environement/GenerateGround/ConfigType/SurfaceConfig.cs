@@ -13,5 +13,6 @@ public struct SurfaceConfig
     public GameObject foliageTile;
     public GameObject flowerTile;
     public GameObject stoneTile;
+    public GameObject doomStoneTile;
 }
 
