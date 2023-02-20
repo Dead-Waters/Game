@@ -39,6 +39,7 @@ public class GenerateGround : MonoBehaviour
 
     void CreateLine(Vector2 position)
     {
+        float calculatedSmoothness = 1 / perlinNoiseSmoothness;
         SurfaceConfig surfaceConfiguration = GeneratorConfig.getInstance().surfaceConfiguration;
         
         setDecoration(position);
@@ -47,18 +48,19 @@ public class GenerateGround : MonoBehaviour
         
         if (surfaceConfiguration.stonePositionY > minBlockY)
         {
-            fillLine(position, Convert.ToInt32(position.y - 1), surfaceConfiguration.stonePositionY + 1, surfaceConfiguration.undergroundTile);
-            fillLine(position, surfaceConfiguration.stonePositionY + 1, minBlockY, surfaceConfiguration.stoneTile);
+            int offset = Mathf.RoundToInt(Mathf.PerlinNoise(position.x * calculatedSmoothness, 0) * (perlinNoiseAmplitude/2));
+            fillLine(position, Convert.ToInt32(position.y - 1), surfaceConfiguration.stonePositionY + offset, surfaceConfiguration.undergroundTile);
+            fillLine(position, surfaceConfiguration.stonePositionY + offset, minBlockY, surfaceConfiguration.stoneTile);
         }
         else
             fillLine(position, Convert.ToInt32(position.y - 1), minBlockY, surfaceConfiguration.undergroundTile);
         TilesHelper.CreateBlock(new Vector2(position.x,minBlockY), surfaceConfiguration.doomStoneTile);
     }
 
-    void fillLine(Vector2 position, int startDirtPos, int endDirtPos, GameObject tile)
+    void fillLine(Vector2 position, int startPos, int endPos, GameObject tile)
     {
         
-        for (float i = startDirtPos; i > endDirtPos; i--)
+        for (float i = startPos; i > endPos; i--)
         {
             TilesHelper.CreateBlock(new Vector2(position.x, i), tile);
         }
