@@ -17,6 +17,19 @@ public static class TreeGenerator
         // nine leaves 3x3
         for (float i = position.y + height - 2; i < position.y + height + 1; i++)
             for (float j = position.x - 1; j < position.x + 2; j++)
-                TilesHelper.CreateBlock(new Vector2(j, i), treeConfigurations.leavesTile, treeConfigurations.backgroundLayerPosition - 0.1f);
+                CreateLeave(new Vector2(j, i));
+
+
+    }
+
+    public static void CreateLeave(Vector2 centerLeave)
+    {                                     
+        TreeConfig treeConfigurations = GeneratorConfig.getInstance().treeConfiguration;
+        Vector2 position = new Vector2(Random.Range(0, 100), Random.Range(0, 100));
+        TilesHelper.CreateBlock(centerLeave, treeConfigurations.leavesTile, treeConfigurations.backgroundLayerPosition - 0.1f);
+                                               
+        if (Random.Range(0, 20) == 0)
+            TilesHelper.CreateBlock(centerLeave, treeConfigurations.appleTile, treeConfigurations.backgroundLayerPosition - 0.2f);
+
     }
 }

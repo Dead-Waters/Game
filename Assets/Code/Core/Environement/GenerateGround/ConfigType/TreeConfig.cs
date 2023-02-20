@@ -14,5 +14,6 @@ public class TreeConfig
 
     public GameObject footTile;
     public GameObject logTile;
-    public GameObject leavesTile; 
+    public GameObject leavesTile;
+    public GameObject appleTile;
 }
