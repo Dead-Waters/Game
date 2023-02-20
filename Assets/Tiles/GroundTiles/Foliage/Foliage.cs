@@ -15,7 +15,7 @@ namespace Tiles
 
         public override void OnRefresh()
         {
-            if (!TilesHelper.isPlacableHere(position))
+            if (!TilesHelper.IsPlacableHere(position))
                 Destroy(this.gameObject);
             Debug.Log("Foliage refreshed");
         }

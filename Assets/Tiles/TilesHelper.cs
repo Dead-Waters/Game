@@ -14,7 +14,7 @@ namespace Tiles{
             localTile.backgroundLayerPosition = backgroundLayerPosition;
             localTile.Init();
         }
-        public static bool isPlacableHere(Vector2 position)
+        public static bool IsPlacableHere(Vector2 position)
         {
             // get the tile at the bottom of the provided position
             Vector2 bottomPosition = new Vector2(position.x, position.y - 1);
